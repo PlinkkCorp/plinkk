@@ -549,12 +549,14 @@ p {
     z-index: 3;
 }
 
-/* Footer ultra-moderne */
 footer {
+    /* Use fixed to reliably center the footer at the viewport bottom */
     position: fixed;
-    bottom: 12px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    display: inline-block;
+    margin-top: 10px;
     text-align: center;
     font-size: 0.7em;
     font-weight: 500;
@@ -573,7 +575,9 @@ footer {
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    z-index: 100;
+    max-width: calc(100% - 40px);
+    width: fit-content;
+    z-index: 999;
 }
 
 footer:hover {
@@ -581,7 +585,7 @@ footer:hover {
         linear-gradient(135deg, 
             rgba(255, 255, 255, 0.10) 0%, 
             rgba(255, 255, 255, 0.05) 100%);
-    transform: translateX(-50%) translateY(-2px) scale(1.01);
+    transform: translate(-50%, -2px) scale(1.01);
     color: rgba(248, 250, 252, 0.9);
     box-shadow: 
         0 6px 20px rgba(0, 0, 0, 0.25),
@@ -626,8 +630,8 @@ span img {
     }
     
     .profile-container {
-        width: 120px;
-        height: 120px;
+        /*width: 120px;*/
+        /*height: 120px; */
         min-width: 120px;
         min-height: 120px;
         margin-bottom: 16px;
@@ -682,11 +686,6 @@ span img {
     .label-button {
         padding: 6px 12px;
         font-size: 0.65em;
-    }
-    
-    footer {
-        font-size: 0.55em;
-        padding: 6px 12px;
     }
     
     /* Barre de statut ultra-compacte sur très petits écrans */
@@ -1256,4 +1255,15 @@ input:checked + .slider:before {
     pointer-events: none;
     user-select: none;
     display: block;
+}
+
+/* Footer responsive adjustments */
+@media (max-width: 480px) {
+    footer {
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 24px);
+        max-width: none;
+        box-sizing: border-box;
+    }
 }

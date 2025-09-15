@@ -706,6 +706,8 @@ export function createStatusBar(profileData) {
     // Conteneur principal de la barre de statut
     const statusBarContainer = document.createElement("div");
     statusBarContainer.className = "status-bar-container";
+    statusBarContainer.style.opacity = "0";
+    statusBarContainer.style.transform = "translate(25%, 75%)";
     
     // Texte de statut (ordre -1 pour apparaître à gauche)
     const statusBarText = document.createElement("div");
@@ -784,7 +786,6 @@ export function createStatusBar(profileData) {
     // Animation d'entrée
     setTimeout(() => {
         statusBarContainer.style.opacity = "1";
-        statusBarContainer.style.transform = "translateY(0)";
     }, 800);
 }
 
