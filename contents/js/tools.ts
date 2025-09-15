@@ -407,6 +407,9 @@ export function createLinkBoxes(profileData) {
         
         // Créer un span pour le texte
         const textSpan = document.createElement("span");
+        textSpan.style.position = "relative";
+        textSpan.style.left = "50%";
+        textSpan.style.transform = "translateX(-50%)";
         textSpan.textContent = link.text;
         
         // Gérer les descriptions
@@ -718,15 +721,16 @@ export function createStatusBar(profileData) {
     
     // Déterminer automatiquement l'état basé sur le texte ou couleur
     const statusText = profileData.statusbar.text.toLowerCase();
+    const status = profileData.statusbar.statusText.toLowerCase();
     let statusClass = "status-online"; // Par défaut
     
-    if (statusText.includes("busy") || statusText.includes("occupé") || statusText.includes("work")) {
+    if (status.includes("busy") || status.includes("occupé") || status.includes("work")) {
         statusClass = "status-busy";
-    } else if (statusText.includes("away") || statusText.includes("absent") || statusText.includes("afk")) {
+    } else if (status.includes("away") || status.includes("absent") || status.includes("afk")) {
         statusClass = "status-away";
-    } else if (statusText.includes("offline") || statusText.includes("off") || statusText.includes("déconnecté")) {
+    } else if (status.includes("offline") || status.includes("off") || status.includes("déconnecté")) {
         statusClass = "status-offline";
-    } else if (statusText.includes("online") || statusText.includes("disponible") || statusText.includes("actif")) {
+    } else if (status.includes("online") || status.includes("disponible") || status.includes("actif")) {
         statusClass = "status-online";
     }
     
