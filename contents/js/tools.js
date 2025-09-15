@@ -404,6 +404,9 @@ export function createLinkBoxes(profileData) {
         mainContent.appendChild(discordIcon);
         // Créer un span pour le texte
         const textSpan = document.createElement("span");
+        textSpan.style.position = "relative";
+        textSpan.style.left = "50%";
+        textSpan.style.transform = "translateX(-50%)";
         textSpan.textContent = link.text;
         // Gérer les descriptions
         if (link.description && link.description.trim() !== "" && link.showDescription) {
@@ -677,6 +680,8 @@ export function createStatusBar(profileData) {
     // Conteneur principal de la barre de statut
     const statusBarContainer = document.createElement("div");
     statusBarContainer.className = "status-bar-container";
+    statusBarContainer.style.opacity = "0";
+    statusBarContainer.style.transform = "translate(25%, 75%)";
     // Texte de statut (ordre -1 pour apparaître à gauche)
     const statusBarText = document.createElement("div");
     statusBarText.className = "statusBarText";
@@ -689,17 +694,18 @@ export function createStatusBar(profileData) {
     circleStatusBar.className = "circle-status-bar";
     // Déterminer automatiquement l'état basé sur le texte ou couleur
     const statusText = profileData.statusbar.text.toLowerCase();
+    const status = profileData.statusbar.statusText.toLowerCase();
     let statusClass = "status-online"; // Par défaut
-    if (statusText.includes("busy") || statusText.includes("occupé") || statusText.includes("work")) {
+    if (status.includes("busy") || status.includes("occupé") || status.includes("work")) {
         statusClass = "status-busy";
     }
-    else if (statusText.includes("away") || statusText.includes("absent") || statusText.includes("afk")) {
+    else if (status.includes("away") || status.includes("absent") || status.includes("afk")) {
         statusClass = "status-away";
     }
-    else if (statusText.includes("offline") || statusText.includes("off") || statusText.includes("déconnecté")) {
+    else if (status.includes("offline") || status.includes("off") || status.includes("déconnecté")) {
         statusClass = "status-offline";
     }
-    else if (statusText.includes("online") || statusText.includes("disponible") || statusText.includes("actif")) {
+    else if (status.includes("online") || status.includes("disponible") || status.includes("actif")) {
         statusClass = "status-online";
     }
     circleStatusBar.classList.add(statusClass);
@@ -744,7 +750,6 @@ export function createStatusBar(profileData) {
     // Animation d'entrée
     setTimeout(() => {
         statusBarContainer.style.opacity = "1";
-        statusBarContainer.style.transform = "translateY(0)";
     }, 800);
 }
 export default {

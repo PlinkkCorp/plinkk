@@ -85,7 +85,7 @@ export const profileData = {
         {url: "https://github.com", icon: "YouTube alt"},
     ],
 
-    statusbar: { text: "Hello World!", colorBg: "#222222", colorText: "#cccccc", borderColor:"#7289DA", fontTextColor:1,}, // Barre de statut , fontTextColor : 1 = borderColor, 0 = colorBg
+    statusbar: { text: "Hello World!", colorBg: "#222222", colorText: "#cccccc", fontTextColor:1, statusText: "busy"/**offline/online/busy/away */}, // Barre de statut , fontTextColor : 1 = borderColor, 0 = colorBg
 
     neonEnable: 1, // 1 : Enable, 0 : Disable
     buttonThemeEnable: 1, // 1 : Enable, 0 : Disable
