@@ -143,11 +143,11 @@ p {
 .profile-container a {
     display: block;
     width: 100%;
-    height: 100%;
     border-radius: 50%;
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    aspect-ratio: 1 / 1;
 }
 
 /* Wrapper pour le système de logo */
@@ -160,6 +160,8 @@ p {
     z-index: 2;
     top: 0;
     left: 0;
+    aspect-ratio: 1 / 1;
+    min-height: 140px;
 }
 
 /* Image de profil sans animation */
@@ -242,6 +244,16 @@ p {
     top: 0;
     left: 0;
     transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.profile-container a {
+    aspect-ratio: 1 / 1;
+}
+
+.profile-pic-wrapper img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
 }
 
 .profile-container:hover .profile-pic-wrapper {
@@ -629,13 +641,6 @@ span img {
         font-size: 0.9rem;
     }
     
-    .profile-container {
-        /*width: 120px;*/
-        /*height: 120px; */
-        min-width: 120px;
-        min-height: 120px;
-        margin-bottom: 16px;
-    }
     
     /* Ajustements pour la barre de statut mobile */
     .status-bar-container {
@@ -661,19 +666,6 @@ span img {
         min-width: 200px;
         padding: 16px 12px;
         margin: 1em 5px;
-    }
-    .profile-container {
-        width: 100px;
-        height: 100px;
-    }
-    .profile-container a {
-        height: 100px;
-    }
-    .profile-pic {
-        width: 100px;
-        height: 100px;
-        min-width: 100px;
-        min-height: 100px;
     }
     .profile-link a {
         font-size: 1.3em;

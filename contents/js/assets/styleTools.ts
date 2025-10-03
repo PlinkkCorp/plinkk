@@ -453,7 +453,7 @@ export function applyDynamicStyles(
             if (neonGradient) {
                 try {
                     styleSheet.insertRule(`
-                        .profile-pic-wrapper::after, .profile-pic-wrapper::before {
+                        .profile-pic-wrapper::after, .profile-pic-wrapper::before,  {
                             background: linear-gradient(45deg, ${neonGradient});
                         }
                     `, styleSheet.cssRules.length);
