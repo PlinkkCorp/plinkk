@@ -11,7 +11,8 @@
     "copy-css": "bash -c \"mkdir -p dist/contents && cp -r contents/css dist/contents/\"",
     "copy-images": "bash -c \"mkdir -p dist/contents && cp -r contents/images dist/contents/\"",
     "copy-html": "bash -c \"mkdir -p dist && cp index.html dist/\"",
-    "copy-canva": "bash -c \"mkdir -p dist/canvaAnimation && cp -r contents/js/canvaAnimation/* dist/canvaAnimation/\""
+    "copy-canva": "bash -c \"mkdir -p dist/canvaAnimation && cp -r contents/js/canvaAnimation/* dist/canvaAnimation/\"",
+    "start": "npm run build && npx http-server ./dist -o"
   },
   "keywords": [
     "linktree",
